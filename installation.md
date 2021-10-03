@@ -1,4 +1,6 @@
+# Установка и настройка Python и PyCharm
 ## Установка и настройка Python и PyCharm
+### Установка и настройка Python и PyCharm
 
 Добро пожаловать на курс! Первым шагом в обучении программированию станет установка и настройка всего необходимого. А именно:
 
@@ -7,7 +9,7 @@
 3. Создание проекта PyCharm
 4. Установка pygame
 
-**Bold** and _Italic_ and `Code` text
+
 You can use the [editor on GitHub](https://github.com/cherv11/Tesseract/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
