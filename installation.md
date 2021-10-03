@@ -9,7 +9,7 @@
 
 ## Установка Python
 
-1. Переходим на [официальный сайт](https://www.python.org/downloads/) Python и скачиваем последнюю версию.
+1. Переходим на официальный сайт Python и скачиваем последнюю версию: https://www.python.org/downloads/
 
 ![python.org](https://user-images.githubusercontent.com/56085790/135749560-a332bd2e-402b-4336-a185-a5909839de94.png)
 
@@ -28,6 +28,18 @@
 
 ## Установка PyCharm
 
-1. Скачиваем Community-версию PyCharm по [ссылке]()
+1. Скачиваем Community-версию PyCharm по ссылке: https://www.jetbrains.com/pycharm/download/#section=windows. Она бесплатна и содержит всё, что нам нужно.
+
+![image](https://user-images.githubusercontent.com/56085790/135750624-a035f6f8-69d0-4d61-a78e-3fe8c3d80c67.png)
+
+2. Эту программу можем устанавливать, куда хотим) После установки она весит окого 700 мегабайт.
+
+![image](https://user-images.githubusercontent.com/56085790/135750720-6cd42d8c-353b-4209-89dc-a814cf5ec88e.png)
+
+3. Поставьте галочки так, как показано на рисунке. Галочка под _Create Desktop Shortcut_ создаст ярлык на рабочем столе. Её ставьте по вкусу.
+
+![Screenshot_10](https://user-images.githubusercontent.com/56085790/135750818-31799020-e0a8-41a4-b206-50020fd91d38.jpg)
+
+4. Вы восхитительны!
 
 
