@@ -9,7 +9,7 @@
 
 ## Установка Python
 
-1. Переходим на официальный сайт Python и скачиваем последнюю версию: [https://www.python.org/downloads/](https://www.python.org/downloads/)  
+1. Переходим на официальный сайт Python и скачиваем последнюю версию: <https://www.python.org/downloads/>
 ![python.org](https://user-images.githubusercontent.com/56085790/135749560-a332bd2e-402b-4336-a185-a5909839de94.png)
 
 2. Когда мы открываем установщик, первым делом нужно **обязательно** поставить галочку _ADD Python to PATH_. Если этого не сделать, в определённый момент вам придётся переустанавливать Python:(  
@@ -24,7 +24,7 @@
 
 ## Установка PyCharm
 
-1. Скачиваем Community-версию PyCharm по ссылке: [https://www.jetbrains.com/pycharm/download/#section=windows](https://www.jetbrains.com/pycharm/download/#section=windows). Она бесплатна и содержит всё, что нам нужно.  
+1. Скачиваем Community-версию PyCharm по ссылке: <https://www.jetbrains.com/pycharm/download/#section=windows>. Она бесплатна и содержит всё, что нам нужно.  
 ![image](https://user-images.githubusercontent.com/56085790/135750624-a035f6f8-69d0-4d61-a78e-3fe8c3d80c67.png)
 
 2. Эту программу можем устанавливать, куда хотим) После установки она весит окого 700 мегабайт.  
