@@ -89,7 +89,7 @@ pip install pygame==2.0.0
 ```
 
 4. Если всё пошло хорошо, мы увидим это.  
-![image](https://user-images.githubusercontent.com/56085790/135762227-0d227473-db74-4e4b-bd5b-6ba41e7d1e50.png)
+![image](https://user-images.githubusercontent.com/56085790/135763128-739db92d-1c6e-4b93-a681-aa7869e49a98.png)
 
 5. Поздравляю, теперь вы полностью готовы писать игры! 
 
