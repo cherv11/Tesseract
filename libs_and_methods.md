@@ -249,6 +249,7 @@ print(math.pi)
 ```py
 print = 4
 print('a')
+>>> TypeError: 'int' object is not callable
 ```
 
 ## Немного функций
