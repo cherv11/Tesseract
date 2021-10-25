@@ -301,6 +301,7 @@ def multiply(a, b):
     return a*b
 
 def palyndrom(word):
+    word = word.lower()
     return word == word[::-1]
 ```
 
