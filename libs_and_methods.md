@@ -308,7 +308,7 @@ print(t)
 ## Создание функций
 Если у нас нет нужной функции, мы можем создать свою:
 ```py
-def multiply(a, b):
+def multiply(a, b=1):
     return a*b
 
 def palyndrom(word):
