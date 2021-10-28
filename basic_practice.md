@@ -1,0 +1,21 @@
+Я напомню про **тернарный оператор** — присвоение переменной одного из двух значений в зависимости от условия:
+```py
+i = 5
+a = i - 1 if i < 0 else i + 1
+```
+Что аналогично коду:
+```py
+i = 5
+if i < 0:
+  a = i - 1
+else:
+  a = i + 1
+```
+А теперь давайте попробуем написать следующий код в одну строчку:
+```py
+self.orbEffects = []
+if not get_bit(self.caster.status, 4):
+    for i in self.caster.abilities:
+        if i.type == 'orb':
+            self.orbEffects.append(i)
+```
