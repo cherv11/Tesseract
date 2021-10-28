@@ -19,3 +19,4 @@ if not get_bit(self.caster.status, 4):
         if i.type == 'orb':
             self.orbEffects.append(i)
 ```
+Как проверить, что кортеж A содержит в себе все элементы кортежа B? Напишите программу, которая это будет выполнять.
