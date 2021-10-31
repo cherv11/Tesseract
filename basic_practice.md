@@ -13,12 +13,14 @@ else:
 ```
 А теперь давайте попробуем написать следующий код в одну строчку:
 ```py
-self.orbEffects = []
-if not get_bit(self.caster.status, 4):
-    for i in self.caster.abilities:
-        if i.type == 'orb':
-            self.orbEffects.append(i)
+orbEffects = []
+if not get_bit(status, 4):
+    for i in abilities:
+        if i.type == 'effect':
+            orbEffects.append(i)
 ```
 Как проверить, что кортеж A содержит в себе все элементы кортежа B?  
 
 случайное число от 1 до time.time()
+
+Давайте напишем функцию, которая отвечает "Привет, <имя>!" на разных языках. 
