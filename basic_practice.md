@@ -24,3 +24,9 @@ if not get_bit(status, 4):
 случайное число от 1 до time.time()
 
 Давайте напишем функцию, которая отвечает "Привет, <имя>!" на разных языках. 
+
+not x
+
+Генератор двухмерного
+
+{i.split('.png')[0]: pygame.image.load('shapes\\'+i).convert_alpha() for i in os.listdir('shapes')}
