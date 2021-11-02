@@ -69,3 +69,10 @@ def multihello(name, language='ru'):
 print(multihello('Дима'))
 >>> Привет, Дима!
 ```
+VI. А тут нужно воспользоваться методами `split()` и `replace()`:
+```py
+def list_from_str(string):
+    string = string.split(']')[0].replace('[', '').split(',')
+    return [int(i) for i in string]
+```
+
