@@ -6,6 +6,21 @@
 ```py
 import pygame
 
+# Определяем кучу цветов
+WHITE = (255, 255, 255) 
+YELLOW = (255, 255, 0)
+YELLANGE = (255, 192, 0)
+ORANGE = (255, 128, 0)
+BLUE = (0, 0, 225)
+LIGHT_BLUE = (135, 208, 250)
+RED = (255, 0, 0)
+DARK_RED = (128, 0, 0)
+GREEN = (64, 255, 64)
+LIGHT_GREEN = (128, 255, 128)
+BLACK = (0, 0, 0)
+BROWN = (96, 38, 0)
+GREY = (128, 128, 128)
+
 FULL_WINDOW = 1000, 600  # устанавливаем разрешение окна
 FPS = 60  # устанавливаем количество кадров в секунду
 
@@ -15,7 +30,7 @@ clock = pygame.time.Clock()  # а это часы для показа колич
 font = pygame.font.SysFont('calibri', 30)  # определяем шрифт, которым можно рендерить текст, это вот Calibri размера 30
 
 while True:  # бесконечный цикл, одно прохождение по нему — один кадр в игре
-    sc.fill(pygame.Color('white'))  # заполняем дисплей белым, чтобы стереть предыдущий кадр
+    sc.fill(WHITE)  # заполняем дисплей белым, чтобы стереть предыдущий кадр
     pos = pygame.mouse.get_pos()  # в эту переменную записываются координаты мыши
     pressed = pygame.mouse.get_pressed()  # а в эту нажатые клавиши мыши
     keys = pygame.key.get_pressed()  # здесь нажатые клавиши на клавиатуре
@@ -36,8 +51,24 @@ while True:  # бесконечный цикл, одно прохождение 
     if keys[pygame.K_a]:  # Или клавиша на клавиатуре
         pass
         
-    sc.blit(font.render(str(pos), True, (0, 0, 0)), (FULL_WINDOW[0]-200, 10))  # надпись с позицией мыши
-    sc.blit(font.render(str(int(clock.get_fps())), True, (0, 0, 0)), (FULL_WINDOW[0]-50, 10))  # надпись с показыванием FPS
+    sc.blit(font.render(str(pos), True, BLACK), (FULL_WINDOW[0]-200, 10))  # надпись с позицией мыши
+    sc.blit(font.render(str(int(clock.get_fps())), True, BLACK), (FULL_WINDOW[0]-50, 10))  # надпись с показыванием FPS
     pygame.display.flip()  # говорим pygame вывести следующий кадр на экран
     clock.tick(FPS)  # делаем паузу, чтобы игра не шла слишком быстро
 ```
+## Функции и полезности
+В конце кода помимо прочего есть две новые функции:
+```py
+font.render(str(pos), True, BLACK)  # Рендерит текст `str(pos)`, используя шрифт `font` чёрного цвета
+```
+Рендерить — означает "делать что-то готовым (к помещению на экран, в нашем случае)". Следующая функция:
+```py
+sc.blit(picture, position)
+```
+Помещает на экран изображение `picture`, ставя его верхний левый угол на координаты `position`. Например:
+```py
+name = font.render('Дима', True, RED)
+sc.blit(name, (0,0))
+```
+Сделает нам текст в верхней левой части экрана:
+![image](https://user-images.githubusercontent.com/56085790/140817476-ba9d949a-5667-40cb-b6ab-5235b12ca74f.png)
