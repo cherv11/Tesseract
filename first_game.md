@@ -28,8 +28,8 @@ while True:  # бесконечный цикл, одно прохождение 
             exit()
         if event.type == pygame.MOUSEBUTTONUP and event.button == 1:   # Тип ивента — нажатие кнопки мыши, 1 и 3 — сами кнопки
             pass                                                       # 2 — нажатие колёсика, 4-5 — поворот колёсика
-        if event.type == pygame.MOUSEMOTION and event.rel:  # Тип ивента — движение мыши, rel — кортеж с указанием, на сколько по x,y сдвинулась мышь
-            pass
+        if event.type == pygame.MOUSEMOTION and event.rel:  # Тип ивента — движение мыши, rel — кортеж с указанием,
+            pass                                            # на сколько по x,y сдвинулась мышь
 
     if pressed[0]:  # Если нужно, вы можете каждый кадр проверять, нажата ли сейчас кнопка мыши
         pass
