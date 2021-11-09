@@ -154,5 +154,5 @@ elif sum(table, []).count(0) == 0:  # Проверяет, есть ли пуст
 
 ```
 ![image](https://user-images.githubusercontent.com/56085790/141016673-36dc83cd-3999-44b4-b8bd-8742d5447ba1.png)  
- Полный код можно посмотреть на [Диске](https://disk.yandex.ru/d/wueDsYmkqlHs2A) (файл tictactoe.py)  
+Полный код можно посмотреть на [Диске](https://disk.yandex.ru/d/wueDsYmkqlHs2A) (файл tictactoe.py)  
 Теперь у нас есть первая полноценная игра!
