@@ -90,6 +90,7 @@ pygame.draw.aaline(sc, LIGHT_GREEN, (50, 520), (500, 120))
 ```py
 TILE_SIZE = 170 # В самом начале (определение)
 
+# А вот это в части рисования
 pygame.draw.rect(sc, BLACK, (455, 60, 510, 510), 10)
 for i in range(1,3):
     pygame.draw.line(sc, BLACK, (455+i*TILE_SIZE, 60), (455+i*TILE_SIZE, 60+510), 10)
