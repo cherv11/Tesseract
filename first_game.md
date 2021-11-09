@@ -43,9 +43,10 @@ table = [[0, 0, 0],
 ```py
 table[1][2] = 2
 ```
-Ещё нам нужна переменная, которая помнит, чей сейчас ход (пусть первым ходит нолик):
+Ещё нам нужна переменная, которая помнит, чей сейчас ход (пусть первым ходит нолик), и переменная, которая запишет победителя (пока что None):
 ```py
 turn = 2
+winner = None
 ```
 И последнее: когда кто-то делает ход, нужно проверять, победил он в игре, или ещё нет:
 ```py
@@ -105,6 +106,49 @@ for event in pygame.event.get():
     if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
         for i in range(3):
             for j in range(3):           # Проверяем каждую координату на позиции мыши
-                if 455+i*TILE_SIZE < pos[0] < 455+(i+1)*TILE_SIZE and 60+i*TILE_SIZE < pos[1] < 60+(i+1)*TILE_SIZE:
+                if 455+j*TILE_SIZE < pos[0] < 455+(j+1)*TILE_SIZE and 60+i*TILE_SIZE < pos[1] < 60+(i+1)*TILE_SIZE:
                     print(i, j)
+```
+Теперь мы можем найти клетку, в которую тыкает игрок. Давайте сделаем ход! Вместо `print()` в конце предыдущего кода пишем следующее:
+```py
+if table[i][j] == 0:  # Мы же не можем поставить фигуру на клетку, где уже есть крестик или нолик?
+    table[i][j] = turn  # Здесь у нас записано, чей сейчас ход
+    if check_win():  # Проверяем, победил ли игрок, сделавший ход 
+        winner = turn   # Тот, кто ходил последний, и будет победителем
+    else:
+        turn = 1 if turn == 2 else 2  # И только после этого передаём ход следующему игроку 
+```
+### Рисование фигур
+Мы уже можем выиграть в крестики-нолики, не видя ничего на экране xD. Теперь нужно нарисовать сами фигуры!
+Алгоритм такой же, как с определением клетки:
+```py
+for i in range(3):
+    for j in range(3):
+        if table[i][j] == 1:
+            pygame.draw.line(sc, RED, (455+j*TILE_SIZE+10, 60+i*TILE_SIZE+10), (455+(j+1)*TILE_SIZE-10, 60+(i+1)*TILE_SIZE-10), 10)
+            pygame.draw.line(sc, RED, (455+(j+1)*TILE_SIZE-10, 60+i*TILE_SIZE+10), (455+j*TILE_SIZE+10, 60+(i+1)*TILE_SIZE-10), 10)
+        elif table[i][j] == 2:
+            pygame.draw.circle(sc, LIGHT_GREEN, (455+(j+0.5)*TILE_SIZE, 60+(i+0.5)*TILE_SIZE), 75, 10)
+```
+Да, определять координаты каждого элемента на экране — одна из самых сложных задач в нашем деле. Чаще всего это получается методом проб и ошибок:  
+![image](https://user-images.githubusercontent.com/56085790/141008235-1136723a-eb31-463d-8cb0-70d3ec8ede12.png)
+### Последние штрихи
+Сейчас при победе одного из игроков или ничьей ничего не происходит. Исправим это, добавив надпись!
+```py
+# Снова добавляем новый код в определение
+font2 = pygame.font.SysFont('times_new_roman', 72)
+wintext = font.render('Победа', True, BLACK)
+xtext = font.render('X', True, RED)
+otext = font.render('O', True, LIGHT_GREEN)
+
+# И небольшой алгоритм проверки победителя и ничьей в конце:
+if winner:
+    sc.blit(wintext, (100, 250))
+    if winner == 1:
+        sc.blit(xtext, (340, 250))
+    else:
+        sc.blit(otext, (340, 250))
+elif sum(table, []).count(0) == 0:  # Проверяет, есть ли пустые клетки в игре
+    sc.blit(tietext, (100, 250))
+
 ```
