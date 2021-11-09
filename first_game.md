@@ -97,7 +97,7 @@ for i in range(1,3):
     pygame.draw.line(sc, BLACK, (455+i*TILE_SIZE, 60), (455+i*TILE_SIZE, 60+510), 10)
     pygame.draw.line(sc, BLACK, (455, 60+i*TILE_SIZE), (455+510, 60+i*TILE_SIZE), 10)
 ```
-![image](https://user-images.githubusercontent.com/56085790/140987995-4f87444b-42d7-406a-b0cf-ff815f1a15d2.png)
+![image](https://user-images.githubusercontent.com/56085790/140987995-4f87444b-42d7-406a-b0cf-ff815f1a15d2.png)  
 ### Определяем ход игрока
 Чтобы сделать ход в крестиках-ноликах, нужно нажать левой кнопкой мыши на нужное место на экране. Давайте сделаем двойной цикл, который показывает нам координаты каждой клетки:
 ```py
@@ -131,7 +131,7 @@ for i in range(3):
             pygame.draw.circle(sc, LIGHT_GREEN, (455+(j+0.5)*TILE_SIZE, 60+(i+0.5)*TILE_SIZE), 75, 10)
 ```
 Да, определять координаты каждого элемента на экране — одна из самых сложных задач в нашем деле. Чаще всего это получается методом проб и ошибок:  
-![image](https://user-images.githubusercontent.com/56085790/141008235-1136723a-eb31-463d-8cb0-70d3ec8ede12.png)
+![image](https://user-images.githubusercontent.com/56085790/141008235-1136723a-eb31-463d-8cb0-70d3ec8ede12.png)  
 ### Последние штрихи
 Сейчас при победе одного из игроков или ничьей ничего не происходит. Исправим это, добавив надпись!
 ```py
@@ -152,5 +152,5 @@ elif sum(table, []).count(0) == 0:  # Проверяет, есть ли пуст
     sc.blit(tietext, (100, 250))
 
 ```
-![image](https://user-images.githubusercontent.com/56085790/141016673-36dc83cd-3999-44b4-b8bd-8742d5447ba1.png)
+![image](https://user-images.githubusercontent.com/56085790/141016673-36dc83cd-3999-44b4-b8bd-8742d5447ba1.png)  
 Теперь у нас есть первая полноценная игра!
