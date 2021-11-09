@@ -97,3 +97,14 @@ for i in range(1,3):
     pygame.draw.line(sc, BLACK, (455, 60+i*TILE_SIZE), (455+510, 60+i*TILE_SIZE), 10)
 ```
 ![image](https://user-images.githubusercontent.com/56085790/140987995-4f87444b-42d7-406a-b0cf-ff815f1a15d2.png)
+### Определяем ход игрока
+Чтобы сделать ход в крестиках-ноликах, нужно нажать левой кнопкой мыши на нужное место на экране. Давайте сделаем двойной цикл, который показывает нам координаты каждой клетки:
+```py
+# Управление
+for event in pygame.event.get():
+    if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+        for i in range(3):
+            for j in range(3):           # Проверяем каждую координату на позиции мыши
+                if 455+i*TILE_SIZE < pos[0] < 455+(i+1)*TILE_SIZE and 60+i*TILE_SIZE < pos[1] < 60+(i+1)*TILE_SIZE:
+                    print(i, j)
+```
