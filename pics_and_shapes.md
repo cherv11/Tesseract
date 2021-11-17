@@ -237,3 +237,5 @@ for i in range(8):
 ![image](https://user-images.githubusercontent.com/56085790/142134333-61d251eb-3363-42bc-8a69-b3e46502804f.png)
 ![image](https://user-images.githubusercontent.com/56085790/142134452-86482d28-13b4-4891-aedf-1d8865ccd512.png)
 ![image](https://user-images.githubusercontent.com/56085790/142134007-5199cd5e-d153-40c4-88ca-fec2abdbe77a.png)
+
+Полный код нашей игры можно всегда найти на [Диске](https://disk.yandex.ru/d/wueDsYmkqlHs2A)
