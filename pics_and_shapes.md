@@ -195,8 +195,7 @@ for event in pygame.event.get():
                     for i in range(8):
                         for j in range(8):
                             # Это классика, это знать надо, см. предыдущую пару
-                            if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < \
-                                    pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
+                            if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
                                 ways = canmove(selected_shape)  # Давайте снова спросим, куда может пойти фигура
                                 for w in ways:
                                     if w[0] == i and w[
@@ -210,8 +209,7 @@ for event in pygame.event.get():
             if event.button == 1:
                 for i in range(8):
                     for j in range(8):
-                        if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[
-                            1] < 65 + TILE_SIZE * i + TILE_SIZE:
+                        if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
                             if board[i][j]:  # Есть ли на этих координатах вообще фигура?
                                 selected_shape = (i, j)
                                 selected_shape_ways = canmove(selected_shape)  # Проверяем, куда она может ходить
