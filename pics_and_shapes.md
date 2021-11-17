@@ -36,10 +36,10 @@
 Данная картинка, находясь бы она в Яндекс.Картинках, показалась бы вам прозрачной, но это не так. Какой-то гений просто нарисовал на ней такой узор фоном. Убираем так же, как и белый фон, подкрутив чувствительность волшебной палочки, если надо:  
 ![image](https://user-images.githubusercontent.com/56085790/142081227-2b698f55-e81a-4773-8973-5a0ceb95abc5.png)  
 
-
-Напоследок разложим всё по папкам и сделаем два квадратика для подсветки ходов:  
-![image](https://user-images.githubusercontent.com/56085790/142084115-81f5ee3f-7a34-4d39-8379-2894b2336f0b.png)
 ### Загружаем всё в pygame
+Разложим всё по папкам и сделаем два квадратика для подсветки ходов:  
+![image](https://user-images.githubusercontent.com/56085790/142084475-9824ccdf-305b-4424-88e7-00abd3087d1a.png)
+
 Наконец, приступим к коду. Помимо определения известных нам вещей:
 ```py
 FULL_WINDOW = 1920, 1080
@@ -56,14 +56,22 @@ font = pygame.font.SysFont('arial', 30)
 ```
 Есть и новые:
 ```py
-deck = pygame.image.load('deck.png').convert_alpha()  # Доска
-bckgr = pygame.transform.scale(pygame.image.load('bckgr\\'+random.choice(os.listdir('bckgr'))).convert_alpha(), (1920, 1080))  # Случайный фон из папки
+# Доска
+deck = pygame.image.load('deck.png').convert_alpha()
+deck = pygame.transform.scale(deck, (1080, 1080))
+# Случайный фон из папки
+bckgr = pygame.transform.scale(pygame.image.load('bckgr\\'+random.choice(os.listdir('bckgr'))).convert_alpha(), (1920, 1080))
+# А это наши два квадратика
 square_icon = pygame.transform.scale(pygame.image.load('sq.png').convert_alpha(), (TILE_SIZE, TILE_SIZE))
 rect_icon = pygame.transform.scale(pygame.image.load('sr.png').convert_alpha(), (TILE_SIZE, TILE_SIZE))
-deck = pygame.transform.scale(deck, (1080, 1080))
 
 shapes = {i.split('.png')[0]: pygame.image.load('shapes\\'+i).convert_alpha() for i in os.listdir('shapes')}
 for k,v in shapes.items():
     shapes[k] = pygame.transform.scale(v, (int(v.get_width()/v.get_height()*TILE_SIZE), TILE_SIZE))
+print(shapes)
+>>> {'B0': <Surface(72x118x32 SW)>, 'B1': <Surface(72x118x32 SW)>, 'K0': <Surface(72x118x32 SW)>,
+'K1': <Surface(72x118x32 SW)>, 'N0': <Surface(72x118x32 SW)>, 'N1': <Surface(72x118x32 SW)>,
+'p0': <Surface(72x118x32 SW)>, 'p1': <Surface(72x118x32 SW)>, 'Q0': <Surface(72x118x32 SW)>,
+'Q1': <Surface(72x118x32 SW)>, 'R0': <Surface(72x118x32 SW)>, 'R1': <Surface(72x118x32 SW)>}
 ```
 
