@@ -238,4 +238,4 @@ for i in range(8):
 ![image](https://user-images.githubusercontent.com/56085790/142134452-86482d28-13b4-4891-aedf-1d8865ccd512.png)
 ![image](https://user-images.githubusercontent.com/56085790/142134007-5199cd5e-d153-40c4-88ca-fec2abdbe77a.png)
 
-Полный код нашей игры можно всегда найти на [Диске](https://disk.yandex.ru/d/wueDsYmkqlHs2A)
+Полный код нашей игры и всё прилагающееся можно всегда найти на [Диске](https://disk.yandex.ru/d/wueDsYmkqlHs2A) в папке chess!
