@@ -188,5 +188,5 @@ selected_shape_ways = []  # Список клеток, на которые он�
 ## Other stuff
 Я обещал на прошлой паре показать "эффект Windows XP", которого можно достичь, если убрать `sc.fill()`:)  
 ![image](https://user-images.githubusercontent.com/56085790/142134333-61d251eb-3363-42bc-8a69-b3e46502804f.png)
-![image](https://user-images.githubusercontent.com/56085790/142134356-84265697-e7bc-4ae7-aa31-8612d2ab6a2f.png)
+![Uploading image.png…]()
 ![image](https://user-images.githubusercontent.com/56085790/142134007-5199cd5e-d153-40c4-88ca-fec2abdbe77a.png)
