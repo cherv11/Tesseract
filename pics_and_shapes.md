@@ -186,51 +186,54 @@ selected_shape_ways = []  # Список клеток, на которые он�
 ```
 Вот часть управления:
 ```py
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONUP:
-            if selected_shape:  # Если мы уже выделили фигуру, мы выбираем место, куда её переставить
-                if event.button == 1:
-                    i,j = selected_shape
-                    if board[i][j].endswith(turn):  # Ходить может только тот, чей сейчас ход!
-                        for i in range(8):
-                            for j in range(8):
-                                # Это классика, это знать надо, см. предыдущую пару
-                                if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
-                                    ways = canmove(selected_shape) # Давайте снова спросим, куда может пойти фигура
-                                    for w in ways:
-                                        if w[0] == i and w[1] == j: # Если может сюда, двигаем её и передаём ход нашему визави
-                                            move(selected_shape, (i, j))
-                                            turn = '1' if turn == '0' else '0'
-                    selected_shape = None  # При клике надо в любом случае отменять выбор фигуры, можно передумать ходить и нажать на любое пустое место
-                if event.button == 3:
-                    selected_shape = None
-            else:  # Если фигура не выделена, выделяем
-                if event.button == 1:
+for event in pygame.event.get():
+    if event.type == pygame.MOUSEBUTTONUP:
+        if selected_shape:  # Если мы уже выделили фигуру, мы выбираем место, куда её переставить
+            if event.button == 1:
+                i, j = selected_shape
+                if board[i][j].endswith(turn):  # Ходить может только тот, чей сейчас ход!
                     for i in range(8):
                         for j in range(8):
-                            if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
-                                if board[i][j]: # Есть ли на этих координатах вообще фигура?
-                                    selected_shape = (i, j)
-                                    selected_shape_ways = canmove(selected_shape)  # Проверяем, куда она может ходить
-                                    if not selected_shape_ways:  # Если не может, отмена операции
-                                        selected_shape = None
+                            # Это классика, это знать надо, см. предыдущую пару
+                            if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < \
+                                    pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
+                                ways = canmove(selected_shape)  # Давайте снова спросим, куда может пойти фигура
+                                for w in ways:
+                                    if w[0] == i and w[
+                                        1] == j:  # Если может сюда, двигаем её и передаём ход нашему визави
+                                        move(selected_shape, (i, j))
+                                        turn = '1' if turn == '0' else '0'
+                selected_shape = None  # При клике надо в любом случае отменять выбор фигуры, можно передумать ходить и нажать на любое пустое место
+            if event.button == 3:
+                selected_shape = None
+        else:  # Если фигура не выделена, выделяем
+            if event.button == 1:
+                for i in range(8):
+                    for j in range(8):
+                        if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[
+                            1] < 65 + TILE_SIZE * i + TILE_SIZE:
+                            if board[i][j]:  # Есть ли на этих координатах вообще фигура?
+                                selected_shape = (i, j)
+                                selected_shape_ways = canmove(selected_shape)  # Проверяем, куда она может ходить
+                                if not selected_shape_ways:  # Если не может, отмена операции
+                                    selected_shape = None
 ```
 И последнее — рисование:
 ```py
-    sc.blit(bckgr, (0, 0))  # Фон
-    sc.blit(deck, (840, 0))  # Доска
+sc.blit(bckgr, (0, 0))  # Фон
+sc.blit(deck, (840, 0))  # Доска
 
-    if selected_shape:  # Если у нас выделена фигура, подсвечиваем, куда она может ходить
-        for i, j, k in selected_shape_ways:
-            if k:  # k означает, что на клетке стоит фигура и её можно съесть, пометим красным
-                sc.blit(red_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i, TILE_SIZE, TILE_SIZE))
-            else:  # Остальные клетки пометим зелёным
-                sc.blit(green_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i, TILE_SIZE, TILE_SIZE))
+if selected_shape:  # Если у нас выделена фигура, подсвечиваем, куда она может ходить
+    for i, j, k in selected_shape_ways:
+        if k:  # k означает, что на клетке стоит фигура и её можно съесть, пометим красным
+            sc.blit(red_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i, TILE_SIZE, TILE_SIZE))
+        else:  # Остальные клетки пометим зелёным
+            sc.blit(green_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i, TILE_SIZE, TILE_SIZE))
 
-    for i in range(8):  
-        for j in range(8):
-            if board[i][j]: # А тут мы достаём картинки с фигурами из словаря shapes и помещаем на экран
-                sc.blit(shapes[board[i][j]], (937 + TILE_SIZE * j, 65 + TILE_SIZE * i))
+for i in range(8):  
+    for j in range(8):
+        if board[i][j]: # А тут мы достаём картинки с фигурами из словаря shapes и помещаем на экран
+            sc.blit(shapes[board[i][j]], (937 + TILE_SIZE * j, 65 + TILE_SIZE * i))
 ```
 ## Other stuff
 Я обещал на прошлой паре показать "эффект Windows XP", которого можно достичь, если убрать `sc.fill()`:)  
