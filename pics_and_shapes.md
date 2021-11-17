@@ -114,5 +114,5 @@ deck = pygame.transform.scale(deck, (int(500*deck.get_width()/deck.get_height())
 # Не забывайте привести к целому числу!
 ```
 Давайте заострим внимание на копии. Если мы загрузим большую картинку и уменьшим её, а затем увеличим, с ней произойдёт это:  
-![image](https://user-images.githubusercontent.com/56085790/142101353-23c650f8-c31a-444f-a694-db9e760a8f2e.png)
+![image](https://user-images.githubusercontent.com/56085790/142121124-d0cf86f9-9c29-4a4d-bffc-da05fdd65f29.png)
 
