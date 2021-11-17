@@ -198,8 +198,7 @@ for event in pygame.event.get():
                             if 908 + TILE_SIZE * j < pos[0] < 908 + TILE_SIZE * j + TILE_SIZE and 65 + TILE_SIZE * i < pos[1] < 65 + TILE_SIZE * i + TILE_SIZE:
                                 ways = canmove(selected_shape)  # Давайте снова спросим, куда может пойти фигура
                                 for w in ways:
-                                    if w[0] == i and w[
-                                        1] == j:  # Если может сюда, двигаем её и передаём ход нашему визави
+                                    if w[0] == i and w[1] == j:  # Если может сюда, двигаем её и передаём ход нашему визави
                                         move(selected_shape, (i, j))
                                         turn = '1' if turn == '0' else '0'
                 selected_shape = None  # При клике надо в любом случае отменять выбор фигуры, можно передумать ходить и нажать на любое пустое место
@@ -224,9 +223,9 @@ sc.blit(deck, (840, 0))  # Доска
 if selected_shape:  # Если у нас выделена фигура, подсвечиваем, куда она может ходить
     for i, j, k in selected_shape_ways:
         if k:  # k означает, что на клетке стоит фигура и её можно съесть, пометим красным
-            sc.blit(red_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i, TILE_SIZE, TILE_SIZE))
+            sc.blit(red_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i))
         else:  # Остальные клетки пометим зелёным
-            sc.blit(green_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i, TILE_SIZE, TILE_SIZE))
+            sc.blit(green_square, (908 + TILE_SIZE * j, 65 + TILE_SIZE * i))
 
 for i in range(8):  
     for j in range(8):
