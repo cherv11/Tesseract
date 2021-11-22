@@ -111,4 +111,149 @@ def canmove(cords):
 ```
 Это ход ладьи и часть хода королевы (очень рекомендую [сериал](https://www.netflix.com/ru/title/80234304)). Почему вместе? Если подумать над тем, как ходят фигуры в шахматах, можно заметить, что ход королевы — это совмещение ходов ладьи и слона. То есть, мы можем написать код для ладьи и слона, а потом сказать, что всё это может королева! Аналогично написаны слон, конь, король и пешка. 
 ## Сделаем меню
+Для того, чтобы сделать меню, нам теперь нужно сделать для части управления и рисования условие: работать только в конкретном режиме. То есть у нас будет режим меню, где работают только кнопки, и режим игры, где работает всё остальное. Давайте сделаем переменную для режима и загрузим какую-нибудь стильную кнопку:
+```py
+button = pygame.transform.scale(pygame.image.load('button.png').convert_alpha(), (300, 100))
+gamemode = 'mainmenu'
+```
+Напишем функцию для смены режима игры:
+```py
+def changemode(mode):
+    global gamemode
+    global bckgr
+    gamemode = mode
+    if gamemode.startswith('game'):  # Будем менять фон каждый раз, когда начинаем новую партию
+        bckgr = pygame.transform.scale(pygame.image.load('bckgr\\' + random.choice(os.listdir('bckgr'))).convert_alpha(), (1920, 1080))
+```
+А теперь создаём кнопки меню. Сделаем такую структуру меню:  
+![image](https://user-images.githubusercontent.com/56085790/142863424-86c6ef83-5ff1-4a2c-aabb-99a7b18b0a4f.png)  
 
+В части управления нужно сделать нажатие на эти самые кнопки. Вот такой код получится в итоге:
+```py
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                if gamemode.startswith('game'):
+                    changemode('mainmenu')
+        if event.type == pygame.MOUSEBUTTONUP:
+            if gamemode == 'mainmenu':  # Мы находимся в главном меню
+                if event.button == 1:
+                    if 810 < pos[0] < 1110:  # По этим координатам расположены на экране три наших кнопки
+                        if 300 < pos[1] < 400:
+                            changemode('aimenu')  # Запускаем игру с ИИ
+                        if 400 < pos[1] < 500:
+                            changemode('game2p')  # Запускаем игру на 2 игрока
+                            fill_board('0')
+                            AIteam = None
+                        if 500 < pos[1] < 600:  # Выход из игры
+                            exit()
+            elif gamemode == 'aimenu':  # Мы выбрали игру с ИИ
+                if event.button == 1:
+                    if 810 < pos[0] < 1110:
+                        if 300 < pos[1] < 400:
+                            changemode('gameai')  # Мы ходим белыми
+                            AIteam = '1'
+                            fill_board('0')
+                        if 400 < pos[1] < 500:
+                            changemode('gameai')  # ИИ ходит белыми, и он уже тут делает первый ход
+                            AIteam = '0'
+                            fill_board('1')
+                            what, where = aimove()
+                            move(what, where)
+                            turn = '1'
+                        if 500 < pos[1] < 600:
+                            changemode('mainmenu')  # Обратно в меню
+            elif gamemode.startswith('game'):
+                # Здесь весь код игры, который мы делали ранее
+```
+А в части рисования остаётся только сделать кнопки и надписи на них:
+```py
+    sc.blit(bckgr, (0, 0)) # Фон есть всегда
+
+    if gamemode == 'mainmenu':  # Кнопки в главном меню
+        sc.blit(button, (810, 300))
+        sc.blit(font.render('Игра с ИИ', True, pygame.Color('white')), (902, 330))
+        sc.blit(button, (810, 400))
+        sc.blit(font.render('2 игрока', True, pygame.Color('white')), (913, 430))
+        sc.blit(button, (810, 500))
+        sc.blit(font.render('Выход', True, pygame.Color('white')), (920, 530))
+    if gamemode == 'aimenu':  # Кнопки, когда мы нажали на игру с ИИ
+        sc.blit(button, (810, 300))
+        sc.blit(font.render('Белыми', True, pygame.Color('white')), (916, 330))
+        sc.blit(button, (810, 400))
+        sc.blit(font.render('Чёрными', True, pygame.Color('white')), (913, 430))
+        sc.blit(button, (810, 500))
+        sc.blit(font.render('Назад', True, pygame.Color('white')), (925, 530))
+    elif gamemode.startswith('game'):
+        # Код игры (рисование доски, фигур и подсветки)
+
+    # Тоже какие-то общие вещи, которые есть всегда
+    sc.blit(font.render(str(pos), True, pygame.Color('white')), (1680, 10)) 
+    sc.blit(font.render(str(int(clock.get_fps())), True, pygame.Color('white')), (1850, 10))
+    pygame.display.flip()
+    clock.tick(FPS)
+```
+Получаем вот такую красоту:
+![image](https://user-images.githubusercontent.com/56085790/142865807-eaf4b2c6-167d-4aef-9344-b69e80eb8808.png)  
+
+## Подключаем ИИ
+Как только мы сделали ход, ИИ должен сразу сделать свой. На том месте, где мы делали ход, то есть там, где располагается функция `move()` располагаем следующий код:
+```py
+AIteam = None  #  Нужна новая переменная в части определения
+# Мы меняем её на '0' или '1', когда запускаем игру с ИИ по кнопке
+
+
+move(selected_shape, (i,j)) 
+turn = '1' if turn == '0' else '0'  # Это мы уже написали
+if AIteam:  # А вот здесь ходит компьютер
+    what, where = aimove()
+    move(what, where)
+    turn = '1' if turn == '0' else '0'
+```
+Итак, у нас есть неизвестная функция `aimove()`, которая возвращает фигуру и место, куда её поставить, а мы затем помещаем эти данные в обычную функцию `move()`, словно ход сделали мы сами. В свою очередь в функции `aimove()` может быть что угодно. Можно сделать так, чтобы она выбирала рандомную фигуру и делала ей столь же рандомный ход:
+```py
+def aimove():
+    moves = []
+    for i in range(8):
+        for j in range(8):
+            if board[i][j].endswith(AIteam): # Находим каждую фигуру компьютера
+                emoves = canmove((i,j))
+                for m in emoves:  # И все её возможные ходы добавляем в один большой список
+                    moves.append(((i,j), (m[0],m[1])))
+    if not moves:  # А это мы выходим в меню, если игра закончилась
+        changemode('mainmenu')
+        return (0,0), (0,0)
+    return random.choice(moves) # Случайный ход
+ ```
+ Я пытался найти алгоритм, который мог бы рассчитывать возможные ходы (его называют шахматным движком, по крайней мере, это его часть), но ничего нет(( Так что останемся с нашим примитивным алгоритмом, улучшив его, чтобы тот мог есть фигуры:
+ ```py
+def aimove():
+    moves = []
+    for i in range(8):
+        for j in range(8):
+            if board[i][j].endswith(AIteam):
+                emoves = canmove((i,j))
+                for m in emoves:
+                    moves.append(((i,j), (m[0],m[1])))
+    if not moves:
+        changemode('mainmenu')
+        return (0,0), (0,0)
+        
+    # Придаём фигурам веса, т.е. ценность для убийцы
+    vs = {'Q': 90, 'K': 1000, 'B':30, 'N':30, 'R':50, 'p':10} 
+    move = None
+    value = 0
+    for shape, pos in moves:
+        if board[pos[0]][pos[1]]: # Ищем, можем ли мы убить какую-то фигуру
+            if vs[board[pos[0]][pos[1]][0]] > value: # Если можем убить несколько фигур, надо выбрать самую ценную
+                value = vs[board[pos[0]][pos[1]][0]] # Для этого находим максимальное значение
+                move = (shape, pos)
+        
+    if not move: # Если мы не можем убить фигуру на этом ходу, играем на рандом
+        return random.choice(moves)
+    return move
+ ```
+ Если нажать на игру чёрными против ИИ, мы сразу увидим нечто подобное:
+ ![image](https://user-images.githubusercontent.com/56085790/142875602-bd1da531-3235-493b-a9ee-30843ac5a7e6.png)
