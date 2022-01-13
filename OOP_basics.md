@@ -85,3 +85,24 @@ class Car:
 b = Car('фура', 6)
 с = Car('лада седан') # тут будет 4 колеса
 ```
+Есть такая хорошая мнемоника, чтобы запомнить атрибуты и методы. Атрибуты — это прилагательные, а методы — это глаголы. Наша машина имеет три атрибута-прилагательных, например, она *синяя* из-за атрибута `color`. А что наша машина умеет **делать**? Пока что у неё один "глагол" — переименовываться))  
+Ну давайте добавим ещё:
+```py
+import random
+colors = ['white', 'black', 'yellow', 'dark_blue']
+
+class Car:
+    def __init__(self, name, wheels=4):
+        self.name = name
+        self.color = random.choice(colors)
+        self.wheels = wheels
+        self.cords = [0, 0]
+        self.speed = [1, 2]
+        
+    def rename(self, new_name):
+        self.name = new_name
+        
+    def move(self):
+        self.cords[0] += self.speed[0]
+        self.cords[1] += self.speed[1]
+ ```
