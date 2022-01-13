@@ -66,7 +66,7 @@ class Car:
     def rename(self, new_name):
         self.name = new_name
  ```
-Мы только что создали **метод** `rename` класса `Car` А теперь поменяем имя нашей машины `a`:
+Мы только что создали **метод** `rename` класса `Car`! А теперь поменяем имя нашей машины `a`:
 ```py
 a.rename('Никита')
 print(a.name)
