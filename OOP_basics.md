@@ -51,5 +51,24 @@ print(a.name) # 'имя машины'
 print(a.color) # 'white' (рандомный цвет)
 print(a.wheels) # 4 — для нас это константа
 ```
-Ещё у нас есть новое слово — `self`. Чтобы создать новую переменную в классе и работать с ней, мы должны писать не `name`, а `self.name`. Тогда это будет относиться к классу, и мы сможем написать `a.name`.
+Ещё у нас есть новое слово — `self`. Чтобы создать новую переменную в классе и работать с ней, мы должны писать не `name`, а `self.name`. Тогда это будет относиться к классу, и мы сможем написать `a.name`.  
+Допустим, мы хотим поменять имя машины функцией. Это делается так:
+```py
+import random
+colors = ['white', 'black', 'yellow', 'dark_blue']
 
+class Car:
+    def __init__(self, name):
+        self.name = name
+        self.color = random.choice(colors)
+        self.wheels = 4
+        
+    def rename(self, new_name):
+        self.name = new_name
+ ```
+А теперь поменяем имя нашей машины `a`:
+```py
+a.rename('Никита')
+print(a.name)
+>>> 'Никита'
+```
