@@ -1,0 +1,12 @@
+# Карточки Fluxx
+![Fluxx 001](https://user-images.githubusercontent.com/56085790/150003147-6ba314fc-abe3-421f-94b4-c499d5ddb83f.jpg)
+![Fluxx 002](https://user-images.githubusercontent.com/56085790/150003152-ccdf2a44-3222-444f-b6d1-645138258f7b.jpg)
+![Fluxx 003](https://user-images.githubusercontent.com/56085790/150003155-9b8f8ab2-9aee-4566-9039-6f228c0d0c37.jpg)
+![Fluxx 004](https://user-images.githubusercontent.com/56085790/150003156-e047c6d4-9a13-4e3a-a316-d2f258c0e641.jpg)
+![Fluxx 005](https://user-images.githubusercontent.com/56085790/150003159-d4330896-c8a1-4daf-8882-c0eeae9fa53c.jpg)
+![Fluxx 006](https://user-images.githubusercontent.com/56085790/150003163-53bda6d9-df43-439a-adc5-391064a0176f.jpg)
+![Fluxx 007](https://user-images.githubusercontent.com/56085790/150003167-5fedbaf0-8083-45ee-ba28-bb1bf26a22b5.jpg)
+![Fluxx 008](https://user-images.githubusercontent.com/56085790/150003172-27d23506-4a14-46df-858e-39ae7306ed40.jpg)
+![Fluxx 009](https://user-images.githubusercontent.com/56085790/150003180-3b359941-f2ae-438d-963a-64cfce9a1587.jpg)
+![Fluxx 010](https://user-images.githubusercontent.com/56085790/150003186-93e79b48-5960-489e-9aba-3e81a1940427.jpg)
+![Fluxx 011](https://user-images.githubusercontent.com/56085790/150003192-6c984551-a4b9-4ce1-a4e1-cc4aa1a90275.jpg)
