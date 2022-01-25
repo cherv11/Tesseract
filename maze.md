@@ -88,11 +88,11 @@ generate_maze()
 Если написать ещё пару строк для показа лабиринта на экране, а заодно добавить фон, мы увидим следующее:
 ```py
 sc.blit(bck, (0,0))
-    sc.blit(maze_square, MAZE_START_CORDS)
-    for i,j in vertical_lines:
-        pygame.draw.line(sc, BLACK, (MAZE_START_CORDS[0]+i*TILE_SIZE, MAZE_START_CORDS[1]+j*TILE_SIZE), (MAZE_START_CORDS[0]+i*TILE_SIZE, MAZE_START_CORDS[1]+(j+1)*TILE_SIZE), 2)
-    for i,j in horizontal_lines:
-        pygame.draw.line(sc, BLACK, (MAZE_START_CORDS[0]+i*TILE_SIZE, MAZE_START_CORDS[1]+j*TILE_SIZE), (MAZE_START_CORDS[0]+(i+1)*TILE_SIZE, MAZE_START_CORDS[1]+j*TILE_SIZE), 2)
+sc.blit(maze_square, MAZE_START_CORDS)
+for i,j in vertical_lines:
+    pygame.draw.line(sc, BLACK, (MAZE_START_CORDS[0]+i*TILE_SIZE, MAZE_START_CORDS[1]+j*TILE_SIZE), (MAZE_START_CORDS[0]+i*TILE_SIZE, MAZE_START_CORDS[1]+(j+1)*TILE_SIZE), 2)
+for i,j in horizontal_lines:
+    pygame.draw.line(sc, BLACK, (MAZE_START_CORDS[0]+i*TILE_SIZE, MAZE_START_CORDS[1]+j*TILE_SIZE), (MAZE_START_CORDS[0]+(i+1)*TILE_SIZE, MAZE_START_CORDS[1]+j*TILE_SIZE), 2)
 ```
 
 ![image](https://user-images.githubusercontent.com/56085790/151013315-caf88bf7-0ccd-420a-a292-8f2cad0a3228.png)
