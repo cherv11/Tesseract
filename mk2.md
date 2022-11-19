@@ -1,0 +1,6 @@
+[текст](https://docs.google.com/document/d/1K5MIz2HyYCJNr2v-LYrhWk1TPCryviS3/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)  
+[преза](https://drive.google.com/file/d/1CGuI3YMJNMjR7Hp8_k6xeO89j5R2AQRB/view?usp=sharing)  
+[рейх](https://docs.google.com/document/d/1Fx7REcAJPxaGRcEb9knrdgCjCOAtMSS0/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
+[эсперанто](https://docs.google.com/document/d/1h94o0mDDe7xQCjGUBABZNEe5GUo1rNKx/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
+[интернет](https://docs.google.com/document/d/1lpywEvDmWC_bcK9juiqWcpW_q-EpN7gV/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
+[киберпанк](https://docs.google.com/document/d/15szReHJDxVl9qAJsEOzAU-EY7O_b3tKl/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
