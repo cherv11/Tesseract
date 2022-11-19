@@ -4,3 +4,4 @@
 [эсперанто](https://docs.google.com/document/d/1h94o0mDDe7xQCjGUBABZNEe5GUo1rNKx/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
 [интернет](https://docs.google.com/document/d/1lpywEvDmWC_bcK9juiqWcpW_q-EpN7gV/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
 [киберпанк](https://docs.google.com/document/d/15szReHJDxVl9qAJsEOzAU-EY7O_b3tKl/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
+[цвет](https://docs.google.com/document/d/1LYr7-HhmZ0_IVs3z8YbsHtzCcY-_9TPr/edit?usp=sharing&ouid=110020821799243183881&rtpof=true&sd=true)
