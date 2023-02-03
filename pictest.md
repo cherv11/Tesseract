@@ -4,7 +4,7 @@
 
 Вот картинка:
 <p>
-    <img style="display: block; margin: auto" src="./1.png" width=300>
+    <img style="display: block; margin: auto" src="./1.jpg" width=300>
     <p style="text-align: center">Подпись</p>
 </p>
 
